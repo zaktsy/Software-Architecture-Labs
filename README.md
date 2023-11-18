@@ -6,6 +6,6 @@
   - [Описание](Lab-1/task-description.md)
   - [Выполненное задание](Lab-1/completed-task.md)
 
-  * **Лабораторная работа 2**
+* **Лабораторная работа 2**
   - [Описание](Lab-2/task-description.md)
   - [Выполненное задание](Lab-2/completed-task.md)
