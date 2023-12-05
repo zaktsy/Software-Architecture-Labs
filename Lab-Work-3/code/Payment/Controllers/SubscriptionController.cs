@@ -8,7 +8,7 @@ namespace Payment.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public partial class SubscriptionController : ControllerBase
+public class SubscriptionController : ControllerBase
 {
     private readonly ISubscriptionRepository _subscriptionRepository;
     private readonly IUserRepository _userRepository;
