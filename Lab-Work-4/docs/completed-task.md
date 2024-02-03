@@ -98,13 +98,12 @@ PUT https://{adress}/Events
 
 Удаляет событие, если оно есть в системе.
 
-**Метод:** PUT
+**Метод:** DELETE
 
 **Входные параметры:**
 | Параметр  | Тип    | Описание   |
 |-----------|--------|------------|
 |  EventId  |  Guid  | ID события |
-|           |        |            |
 
 **Пример ответа:** НЕТ
 
@@ -212,13 +211,12 @@ PUT https://{adress}/Tickets
 
 Удаляет событие, если оно есть в системе.
 
-**Метод:** PUT
+**Метод:** DELETE
 
 **Входные параметры:**
 |  Параметр  | Тип    | Описание   |
 |------------|--------|------------|
 |  TicketId  |  Guid  | ID билета  |
-|            |        |            |
 
 **Пример ответа:** НЕТ
 
@@ -235,11 +233,15 @@ DELETE https://{adress}/Tickets?ticketId={TicketId}
 
 ![GetEvents](image.png)
 
+![GetEvents-test](image-8.png)
+
 <br>
 
 ### CreateEvent
 
 ![CreateEvent](image-1.png)
+
+![CreateEvent-test](image-9.png)
 
 <br>
 
@@ -247,11 +249,15 @@ DELETE https://{adress}/Tickets?ticketId={TicketId}
 
 ![ChangeEventNameOrAdd](image-2.png)
 
+![ChangeEventNameOrAdd-test](image-10.png)
+
 <br>
 
 ### DeleteEvent
 
 ![DeleteEvent](image-3.png)
+
+![DeleteEvent-test](image-11.png)
 
 <br>
 
@@ -259,20 +265,28 @@ DELETE https://{adress}/Tickets?ticketId={TicketId}
 
 ![GetTickets](image-4.png)
 
+![GetTickets-test](image-12.png)
+
 <br>
 
 ### CreateTicket
 
 ![CreateTicket](image-5.png)
 
+![CreateTicket-test](image-13.png)
+
 <br>
 
 ### ChangeTicketNameOrAdd
 
-![Alt text](image-6.png)
+![ChangeTicketNameOrAdd](image-6.png)
+
+![ChangeTicketNameOrAdd-test](image-14.png)
 
 <br>
 
 ### DeleteTicket
 
 ![DeleteTicket](image-7.png)
+
+![DeleteTicket-test](image-15.png)
