@@ -1,0 +1,35 @@
+services:
+  events-api:
+    container_name: events-api
+    hostname: events-api
+    image: events-api
+    build:
+      dockerfile: events-api/Dockerfile
+    depends_on:
+      - "gateway-db"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=gateway-db;Port=5432;Database=gateway-db;Username=postgres;Password=postgres;
+  
+  gateway-db:
+    image: postgres:latest
+    container_name: gateway-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=gateway-db
+    ports:
+      - "5444:5432"
+    restart: always
+
+  gateway-api:
+    container_name: api-gateway
+    hostname: api-gateway
+    image: api-gateway
+    build:
+      dockerfile: api-gateway/Dockerfile
+    links:
+      - "events-api:events-api"
+    depends_on:
+      - "events-api"
+    ports:
+      - "8080:8080"
