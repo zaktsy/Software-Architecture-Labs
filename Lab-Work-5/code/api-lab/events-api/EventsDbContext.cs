@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace events_api;
 
-public class ApiDbContext : DbContext
+public class EventsDbContext : DbContext
 {
-    public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
+    public EventsDbContext(DbContextOptions<EventsDbContext> options) : base(options)
     {
         Database.EnsureCreated();
     }

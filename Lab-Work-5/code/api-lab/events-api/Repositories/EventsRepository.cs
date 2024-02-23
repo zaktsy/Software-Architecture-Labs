@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace events_api.Repositories;
 
-internal class EventsRepository(ApiDbContext context) : IEventsRepository
+internal class EventsRepository(EventsDbContext context) : IEventsRepository
 {
     public async Task<IEnumerable<Event>> GetAllAsync()
     {

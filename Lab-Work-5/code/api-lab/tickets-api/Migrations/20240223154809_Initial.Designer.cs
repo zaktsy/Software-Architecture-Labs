@@ -5,42 +5,27 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using api;
-using events_api;
+using tickets_api;
 
 #nullable disable
 
-namespace api.Migrations
+namespace tickets_api.Migrations
 {
-    [DbContext(typeof(ApiDbContext))]
-    [Migration("20240207195011_Initial")]
+    [DbContext(typeof(TicketsDbContext))]
+    [Migration("20240223154809_Initial")]
     partial class Initial
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.26")
+                .HasAnnotation("ProductVersion", "8.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("api.Models.Event", b =>
-                {
-                    b.Property<Guid>("EventId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("EventName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("EventId");
-
-                    b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("api.Models.Ticket", b =>
+            modelBuilder.Entity("tickets_api.Models.Ticket", b =>
                 {
                     b.Property<Guid>("TicketId")
                         .ValueGeneratedOnAdd()
