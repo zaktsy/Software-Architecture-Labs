@@ -3,6 +3,7 @@ services:
     container_name: events-api
     hostname: events-api
     image: events-api
+    context: ./events-api
     build:
       dockerfile: events-api/Dockerfile
     depends_on:
@@ -14,6 +15,7 @@ services:
     container_name: tickets-api
     hostname: tickets-api
     image: tickets-api
+    context: ./tickets-api
     build:
       dockerfile: tickets-api/Dockerfile
     depends_on:
@@ -31,10 +33,11 @@ services:
       - "5444:5432"
     restart: always
 
-  gateway-api:
+  api-gateway:
     container_name: api-gateway
     hostname: api-gateway
     image: api-gateway
+    context: ./api-gateway
     build:
       dockerfile: api-gateway/Dockerfile
     links:
