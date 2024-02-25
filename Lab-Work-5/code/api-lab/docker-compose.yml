@@ -5,9 +5,9 @@ services:
     container_name: events-api
     hostname: events-api
     image: events-api
-    context: ./events-api
     build:
       dockerfile: events-api/Dockerfile
+      context: ./events-api
     depends_on:
       - "gateway-db"
     environment:
@@ -17,9 +17,9 @@ services:
     container_name: tickets-api
     hostname: tickets-api
     image: tickets-api
-    context: ./tickets-api
     build:
       dockerfile: tickets-api/Dockerfile
+      context: ./tickets-api
     depends_on:
       - "gateway-db"
     environment:
@@ -39,9 +39,9 @@ services:
     container_name: api-gateway
     hostname: api-gateway
     image: api-gateway
-    context: ./api-gateway
     build:
       dockerfile: api-gateway/Dockerfile
+      context: ./api-gateway
     links:
       - "events-api:events-api"
       - "tickets-api:tickets-api"
