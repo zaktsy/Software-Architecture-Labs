@@ -7,7 +7,7 @@ services:
     image: events-api
     build:
       dockerfile: events-api/Dockerfile
-      context: ./events-api
+      context: .
     depends_on:
       - "gateway-db"
     environment:
@@ -19,7 +19,7 @@ services:
     image: tickets-api
     build:
       dockerfile: tickets-api/Dockerfile
-      context: ./tickets-api
+      context: .
     depends_on:
       - "gateway-db"
     environment:
@@ -41,7 +41,7 @@ services:
     image: api-gateway
     build:
       dockerfile: api-gateway/Dockerfile
-      context: ./api-gateway
+      context: .
     links:
       - "events-api:events-api"
       - "tickets-api:tickets-api"
