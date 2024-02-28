@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
       
       - name: Start containers
-        run: docker-compose -f "./Lab-Work-5/code/api-lab/docker-compose.yml" up  -d --wait --force-recreate
+        run: docker-compose -f "./Lab-Work-5/code/api-lab/docker-compose.yml" up  -d --wait
 
       - name: Setup dotnet 
         uses: actions/setup-dotnet@v3
@@ -20,7 +20,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Install dependencies
-        run: cd /Lab-Work-5/api-lab/code/api-test & dotnet restore 
+        run: cd /Lab-Work-5/code/api-lab/api-test & dotnet restore 
       
       - name: Build
         run: dotnet build
