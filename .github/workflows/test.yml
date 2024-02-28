@@ -26,6 +26,7 @@ jobs:
       - name: Build
         working-directory: ./Lab-Work-5/code/api-lab
         run: dotnet build
+             docker ps -a
 
       - name: Run tests
         working-directory: ./Lab-Work-5/code/api-lab
