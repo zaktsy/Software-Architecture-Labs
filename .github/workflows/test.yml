@@ -20,10 +20,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Install dependencies
-        run: dotnet restore /api-test/api-test.csproj
+        run: cd /api-test & dotnet restore 
       
       - name: Build
-        run: dotnet build /api-test/api-test.csproj 
+        run: dotnet build
 
       - name: Run tests
-        run: dotnet run /api-test/api-test.csproj 
+        run: dotnet run
