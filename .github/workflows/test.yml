@@ -20,7 +20,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Install dependencies
-        run: ls & cd /Lab-Work-5/code/api-test & dotnet restore 
+        run: cd /Lab-Work-5/api-lab/code/api-test & dotnet restore 
       
       - name: Build
         run: dotnet build
