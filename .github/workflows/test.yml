@@ -20,10 +20,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Install dependencies
-        run: cd Lab-Work-5/code/api-lab & ls & dotnet restore 
+        working-directory: ./Lab-Work-5/code/api-lab
+        run: dotnet restore 
       
       - name: Build
+        working-directory: ./Lab-Work-5/code/api-lab
         run: dotnet build
 
       - name: Run tests
-        run: dotnet run --project=/Lab-Work-5/code/api-lab/api-test/api-test.csproj
+        working-directory: ./Lab-Work-5/code/api-lab
+        run: dotnet run --project=./api-test/api-test.csproj
