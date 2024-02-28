@@ -30,7 +30,7 @@ public class EventsController(IEventsRepository eventsRepository) : ControllerBa
             var newEvent = new Event() { EventName = eventName };
             await eventsRepository.AddAsync(newEvent);
 
-            return Ok();
+            return StatusCode(StatusCodes.Status500InternalServerError);
         }
         catch (Exception e)
         {
