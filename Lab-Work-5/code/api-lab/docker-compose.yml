@@ -1,3 +1,5 @@
+version: '3.1'
+
 services:
   events-api:
     container_name: events-api
@@ -5,6 +7,7 @@ services:
     image: events-api
     build:
       dockerfile: events-api/Dockerfile
+      context: .
     depends_on:
       - "gateway-db"
     environment:
@@ -16,6 +19,7 @@ services:
     image: tickets-api
     build:
       dockerfile: tickets-api/Dockerfile
+      context: .
     depends_on:
       - "gateway-db"
     environment:
@@ -31,12 +35,13 @@ services:
       - "5444:5432"
     restart: always
 
-  gateway-api:
+  api-gateway:
     container_name: api-gateway
     hostname: api-gateway
     image: api-gateway
     build:
       dockerfile: api-gateway/Dockerfile
+      context: .
     links:
       - "events-api:events-api"
       - "tickets-api:tickets-api"
