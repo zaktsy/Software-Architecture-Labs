@@ -12,7 +12,7 @@ jobs:
           name: Docker Compose Remote Deployment
           with:
             ssh_host: ${{ secrets.SSH_HOST }}
-            sh_user: ${{ secrets.SSH_USER }}
+            ssh_user: ${{ secrets.SSH_USER }}
             ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
             ssh_host_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
             docker_compose_prefix: myapp
