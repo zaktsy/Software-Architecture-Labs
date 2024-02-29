@@ -1,6 +1,8 @@
-name: CI
+name: Test and Deploy
 on:
   pull_request:
+    branches: [ "main", "LabWork5" ]
+  push:
     branches: [ "main", "LabWork5" ]
 
 jobs:

@@ -1,7 +1,12 @@
 name: CD
+
 on:
-  push:
-    branches: [ "main", "LabWork5" ]
+  workflow_run:
+    workflows: ["CI"]
+    branches: [LabWork5]
+    types:
+      - completed
+
 
 jobs:
   deploy:
