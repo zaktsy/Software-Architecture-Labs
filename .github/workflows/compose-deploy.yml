@@ -1,0 +1,35 @@
+name: Docker Compose SSH Deployment
+description: Deploy a repository with docker-compose via SSH to a remote host.
+branding:
+  icon: anchor
+  color: blue
+inputs:
+  ssh_private_key:
+    description: The SSH private key used for logging into remote system.
+    required: true
+  ssh_host:
+    description: The remote host name or IP address.
+    required: true
+  ssh_port:
+    description: The remote port number.
+    default: '22'
+  ssh_user:
+    description: The remote username.
+    default: 'docker-deploy'
+  docker_compose_filename:
+    description: The docker-compose file name.
+    default: docker-compose.yaml
+  tar_package_operation_modifiers:
+    description: Tar operation modifiers used while creating the package.
+    default: '--exclude .git --exclude .github --exclude .gitignore --exclude .gitmodules --exclude .vscode'
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    SSH_USER: ${{ inputs.ssh_user }}
+    SSH_HOST: ${{ inputs.ssh_host }}
+    SSH_PORT: ${{ inputs.ssh_port }}
+    SSH_PRIVATE_KEY: ${{ inputs.ssh_private_key }}
+    DOCKER_COMPOSE_FILENAME: ${{ inputs.docker_compose_filename }}
+    TAR_PACKAGE_OPERATION_MODIFIERS: ${{ inputs.tar_package_operation_modifiers }}
+    DOCKER_COMPOSE_DOWN: ${{ inputs.docker_compose_down }}

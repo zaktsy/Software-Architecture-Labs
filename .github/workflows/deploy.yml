@@ -10,7 +10,7 @@ jobs:
         - uses: actions/checkout@v3
 
         - name: Docker-Compose Remote Deployment
-          uses: masterjanic/docker-compose-ssh-deployment@master
+          uses: compose-deploy.yml
           with:
             ssh_host: ${{ secrets.SSH_HOST }}
             ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
