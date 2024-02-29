@@ -1,8 +1,6 @@
 name: Docker Compose SSH Deployment
 description: Deploy a repository with docker-compose via SSH to a remote host.
-branding:
-  icon: anchor
-  color: blue
+
 inputs:
   ssh_private_key:
     description: The SSH private key used for logging into remote system.
