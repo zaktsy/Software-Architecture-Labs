@@ -45,7 +45,6 @@ tar -C \$workdir -xjv;
 log 'Launching docker compose...';
 cd \$workdir;
 
-
 log 'Executing docker compose down...';
 docker compose -f \"$DOCKER_COMPOSE_FILENAME\" down
 
