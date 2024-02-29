@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v3
-        - uses: astappiev/docker-compose-remote-action@master
-          name: Docker Compose Remote Deployment
+
+        - name: Docker-Compose Remote Deployment
+          uses: masterjanic/docker-compose-ssh-deployment@master
           with:
             ssh_host: ${{ secrets.SSH_HOST }}
-            ssh_user: ${{ secrets.SSH_USER }}
             ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-            ssh_host_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
-            docker_compose_prefix: myapp
-            docker_args: '-d --force-recreate --build'
+            ssh_user: ${{ secrets.SSH_USER }}
+            docker_compose_filename: "./Lab-Work-5/code/api-lab/docker-compose.yml"
+            no_cache: "true"
