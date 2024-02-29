@@ -1,5 +1,4 @@
 name: Docker Compose SSH Deployment
-description: Deploy a repository with docker-compose via SSH to a remote host.
 
 inputs:
   ssh_private_key:
