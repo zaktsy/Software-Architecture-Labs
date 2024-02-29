@@ -56,4 +56,4 @@ log "Connecting to remote host."
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=100 \
   "$SSH_USER@$SSH_HOST" -p "$SSH_PORT" \
   "$remote_command" \
-  < /tmp/workspace.tar.bz2
+  < /tmp/workspace.tar.bz2"
