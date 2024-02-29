@@ -1,0 +1,20 @@
+name: CD
+
+on:
+  push:
+    branches: [ "main", "LabWork5" ]
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+
+        - name: Docker-Compose Remote Deployment
+          uses: ./.github/workflows/deploy-action
+          with:
+            ssh_host: ${{ secrets.SSH_HOST }}
+            ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+            ssh_user: ${{ secrets.SSH_USER }}
+            docker_compose_filename: "./Lab-Work-5/code/api-lab/docker-compose.yml"

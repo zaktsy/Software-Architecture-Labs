@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+  events-api:
+    container_name: events-api
+    hostname: events-api
+    image: events-api
+    build:
+      dockerfile: events-api/Dockerfile
+      context: .
+    depends_on:
+      - "gateway-db"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=gateway-db;Port=5432;Database=events;Username=postgres;Password=postgres;
+  
+  tickets-api:
+    container_name: tickets-api
+    hostname: tickets-api
+    image: tickets-api
+    build:
+      dockerfile: tickets-api/Dockerfile
+      context: .
+    depends_on:
+      - "gateway-db"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=gateway-db;Port=5432;Database=tickets;Username=postgres;Password=postgres;
+
+  gateway-db:
+    image: postgres:latest
+    container_name: gateway-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5444:5432"
+    restart: always
+
+  api-gateway:
+    container_name: api-gateway
+    hostname: api-gateway
+    image: api-gateway
+    build:
+      dockerfile: api-gateway/Dockerfile
+      context: .
+    links:
+      - "events-api:events-api"
+      - "tickets-api:tickets-api"
+    depends_on:
+      - "events-api"
+      - "tickets-api"
+    ports:
+      - "8080:8080"
