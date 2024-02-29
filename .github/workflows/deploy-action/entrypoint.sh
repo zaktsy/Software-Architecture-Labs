@@ -50,10 +50,10 @@ log 'Executing docker compose down...';
 docker compose -f \"$DOCKER_COMPOSE_FILENAME\" down
 
 log 'Executing docker compose up...';
-docker compose -f \"$DOCKER_COMPOSE_FILENAME\" -p \"$DOCKER_COMPOSE_PREFIX\" up -d --remove-orphans --force-recreate
+docker compose -f \"$DOCKER_COMPOSE_FILENAME\" -p \"$DOCKER_COMPOSE_PREFIX\" up -d --remove-orphans --force-recreate"
 
 log "Connecting to remote host."
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=100 \
   "$SSH_USER@$SSH_HOST" -p "$SSH_PORT" \
   "$remote_command" \
-  < /tmp/workspace.tar.bz2"
+  < /tmp/workspace.tar.bz2
