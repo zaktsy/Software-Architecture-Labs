@@ -19,7 +19,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 public class ApiRoutesHolder
     {
         private ApiRoutesHolder() { }
@@ -83,7 +83,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 abstract class EventCreator
     {
         public abstract IEvent CreateEvent();
@@ -157,7 +157,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 interface IEvent
     {
         public IEvent Clone();
@@ -216,7 +216,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class EventCreator
     {
         private readonly EventApiClient _eventApi;
@@ -294,7 +294,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class TicketService
     {
         private readonly IPaymentService _paymentService;
@@ -361,7 +361,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class TicketService
     {
         private readonly IPaymentService _paymentService;
@@ -433,7 +433,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class TicketService
     {
         private readonly PaymentProviderService _paymentProviderService;
@@ -509,7 +509,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class PaymentService
     {
         private readonly ICommand _onPaymentRequestedCommand = new ChangeStatusCommand();
@@ -576,7 +576,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class Payment
     {
         private IPaymentState _state;
@@ -642,7 +642,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class PaymentService
     {
         private readonly IPaymentStrategy _paymentStrategy;
@@ -705,7 +705,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 abstract class PriceCalculator
     {
         public float CalculatePrice()
@@ -775,7 +775,7 @@ classDiagram
 
 **Код:** 
 
-```
+```csharp
 class DiscountNotificationService
     {
         private readonly List<IDiscountNotifier> _subscribers = new();
